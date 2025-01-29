@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropdown Navigation Menu</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background-color: #333;
+            color: white;
+        }
+        .header-logo {
+            width: 100px;
+        }
+        .nav-lists {
+            position: relative;
+        }
+        .nav-lists ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+        .nav-lists ul li {
+            position: relative;
+        }
+        .nav-lists ul li a {
+            text-decoration: none;
+            color: white;
+            padding: 10px 15px;
+            transition: 0.3s;
+        }
+        .nav-lists ul li a:hover {
+            background-color: #555;
+            border-radius: 5px;
+        }
+        .nav-lists ul li:hover .dropdown {
+            display: block;
+        }
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            min-width: 150px;
+            border-radius: 5px;
+        }
+        .dropdown li {
+            display: block;
+        }
+        .dropdown li a {
+            display: block;
+            padding: 10px;
+            color: black;
+            text-decoration: none;
+        }
+        .dropdown li a:hover {
+            background: #ddd;
+        }
+        .menu-phone {
+            display: none;
+            width: 30px;
+            cursor: pointer;
+        }
+        @media (max-width: 768px) {
+            .nav-lists ul {
+                display: none;
+                position: absolute;
+                top: 60px;
+                right: 30px;
+                background: #333;
+                flex-direction: column;
+                width: 200px;
+                padding: 10px;
+                border-radius: 5px;
+            }
+            .nav-lists ul.active {
+                display: flex;
+            }
+            .menu-phone {
+                display: block;
+            }
+        }
+
+        .header-3rd img{
+            width: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="img/FOOD.png" alt="Logo" class="header-logo">
+        <nav class="nav-lists">
+            <img src="img/menu-alt-05-svgrepo-com.svg" alt="Menu" class="menu-phone" onclick="toggleMenu()">
+            <ul>
+                <li><a href="#" class="nav-link home">Home</a></li>
+                <li>
+                    <a href="#" class="nav-link">Menu</a>
+                    <ul class="dropdown">
+                        <li><a href="#">Breakfast</a></li>
+                        <li><a href="#">Lunch</a></li>
+                        <li><a href="#">Dinner</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" class="nav-link">Services</a></li>
+                <li><a href="#" class="nav-link">Offers</a></li>
+            </ul>
+        </nav>
+        <div class="header-3rd">
+            <img src="img/search.svg" alt="search" class="search">
+            <img src="img/shopping-bag-2-svgrepo-com.svg" alt="cart" class="shopping-bag">
+            <button class="contact"> <img src="img/telephone.svg" alt="" class="contact-ic"> <span>Contact</span></button>
+        </div>
+    </div>
+    <script>
+        function toggleMenu() {
+            document.querySelector(".nav-lists ul").classList.toggle("active");
+        }
+    </script>
+</body>
+</html>
